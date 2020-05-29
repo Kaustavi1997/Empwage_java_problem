@@ -1,4 +1,4 @@
-public class Empwagrbuilderarray{
+public class EmpwagrbuilderarrayUC10{
 	public static final int Part_Time = 1;
 	public static final int Full_Time = 2;
 
@@ -11,7 +11,7 @@ public class Empwagrbuilderarray{
 	}
 
 	private void addCompanyEmpWage(String company_name,int emp_rate_per_hour,int working_days,int max_hours_per_month){
-		companyEmpwageArray[numOfCompany] = new CompanyEmpwageUC10[company_name , emp_rate_per_hour , working_days , max_hours_per_month ];
+		companyEmpwageArray[numOfCompany] = new CompanyEmpwageUC10(company_name , emp_rate_per_hour , working_days , max_hours_per_month );
 		numOfCompany++;
 	}
 	private void computeEmpwage(){
@@ -22,7 +22,7 @@ public class Empwagrbuilderarray{
 	}
 	private int computeEmpwage(CompanyEmpwageUC10 companyEmpwageUC10){
 		int hrs=0 , totalhrs=0, totalworkingdays=0;
-		while(totalhrs<=max_hours_per_month && totalworkingdays<working_days){
+		while(totalhrs<=companyEmpwageUC10.max_hours_per_month && totalworkingdays<companyEmpwageUC10.working_days){
 			totalworkingdays++;
 			int empcheck = (int) Math.floor(Math.random()*10)%3;
 			switch(empcheck){
@@ -41,9 +41,9 @@ public class Empwagrbuilderarray{
 		return totalhrs * companyEmpwageUC10.emp_rate_per_hour;
 	}
 	public static void main(String[] args){
-		Empwagrbuilderarray empwagrbuilder = new Empwagrbuilderarray();
-		empwagrbuilder.addCompanyEmpWage["DMart",20,22,100];
-		empwagrbuilder.addCompanyEmpWage["Sephora",40,26,200];
+		EmpwagrbuilderarrayUC10 empwagrbuilder = new EmpwagrbuilderarrayUC10();
+		empwagrbuilder.addCompanyEmpWage("DMart",20,22,100);
+		empwagrbuilder.addCompanyEmpWage("Sephora",40,26,200);
 		empwagrbuilder.computeEmpwage();
 
 	}
